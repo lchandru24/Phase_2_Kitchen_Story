@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+                <img src="https://th.bing.com/th/id/OIP.BDF49cgc4GFdmBu2d3hcQwAAAA?pid=ImgDet&w=414&h=414&rs=1" alt="">
+                <h6>All Foods</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('Indian')">
+                <img src="https://th.bing.com/th/id/R.ee7b29d23d807e498dbf9ea9d0289623?rik=%2bpfl30cDLg63Xg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fveg-thali-png-mukhya-bhoj-1064.png&ehk=wbQoXZQUkz5JyFmGAtenCtjnADYDTZp%2b2xChLVgdYhE%3d&risl=&pid=ImgRaw&r=0" alt="">
+                <h6>Indian</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('Chinese')">
+                <img src="https://th.bing.com/th/id/OIP.C3Ep0grJrP7VQASs-3ocnwHaFY?pid=ImgDet&rs=1" alt="">
+                <h6>Chinese</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('Italian')">
+                <img src="https://th.bing.com/th/id/R.e3bddc057d87265bd7107d1afe61c791?rik=JFL6UJzjLvu4ag&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2ftransparent-pizza%2ftransparent-pizza-15.png&ehk=KFygfUcv3IAirjb6nZJCjzs2fp7aNDIvM9F3B6TZjl4%3d&risl=&pid=ImgRaw&r=0" alt="">
+                <h6>Italian</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.title}}</h5>
+                <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.description}}</p>
+                <p><strong>Price: {{item.price | currency:'INR'}}</strong></p>
+                <button class="btn btn-primary" (click)=addtocart(item)>Add to Cart</button>
+            </div>
+        </ng-container>
+    </div>
+</div>

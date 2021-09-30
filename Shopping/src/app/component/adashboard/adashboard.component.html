@@ -1,0 +1,103 @@
+<ng-container *ngIf="toggle">
+  <nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2 style="color: aliceblue;">Admin Dashboard</h2>
+        <div class="d-flex">
+            <button (click)="clickAddFoodItem()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Food Items</button>
+            <button (click)="logout()" class="btn btn-danger mx-3">LogOut</button>
+        </div>
+    </div>
+</nav>
+
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">Food ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Image URL</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allFoodData">
+            <td>{{data.id}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.price | currency:'INR'}}</td>
+            <td style="width: 20%;">{{data.description}}</td>
+            <td>{{data.category}}</td>
+            <td style="width: 10%;">{{data.image}}</td>
+            <td>
+                <button class="btn btn-info" (click)="onEditFoodItem(data)" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>&nbsp;
+                <button class="btn btn-danger" (click)="deleteFoodItem(data)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Food Item Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label class="form-label">Name</label>
+                  <input type="text" formControlName="title" placeholder="Food Name" class="form-control" id="name-input">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Price</label>
+                    <input type="text" formControlName="price" placeholder="Food Price" class="form-control" id="price-input">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <input type="text" formControlName="description" placeholder="Food Description" class="form-control" id="description-input">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Category</label>
+                    <input type="text" formControlName="category" placeholder="Food Category" class="form-control" id="category-input">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Image URL</label>
+                    <input type="text" formControlName="image" placeholder="Food Image URL" class="form-control" id="image-input">
+                  </div>
+              </form>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="showAdd" type="button" class="btn btn-primary" (click)="addFoodItem()">Add Details</button>
+          <button *ngIf="showbtn" type="button" class="btn btn-primary" (click)="updateFoodItem()">Update Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!toggle">
+  <div id='card' class="animated fadeIn">
+    <div id='upper-side'>
+
+        <h3 id='status'>
+        Error!
+      </h3>
+    </div>
+    <div id='lower-side'>
+      <p id='message'>
+        You Need to Login!
+      </p>
+      <a routerLink="/login" id="contBtn">Login</a>
+    </div>
+  </div>
+</ng-container>
+
