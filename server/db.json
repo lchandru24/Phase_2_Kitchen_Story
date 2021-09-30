@@ -1,0 +1,35 @@
+{
+  "products": [
+    {
+      "id": 3,
+      "title": "Veg Noodles",
+      "price": 99,
+      "description": "Stir-fried noodles made with loads of mix vegetables and seasoned with soy sauce, ginger, garlic and celery.",
+      "category": "Chinese",
+      "image": "https://th.bing.com/th/id/OIP.ok4HZBiYY4UFo22YcilDGQHaGt?pid=ImgDet&rs=1"
+    },
+    {
+      "id": 4,
+      "title": "Idli Vaada",
+      "price": "49",
+      "description": "Savoury rice cake, originating from Dakshina Kannada region of Karnataka state in South India",
+      "category": "Indian",
+      "image": "https://th.bing.com/th/id/OIP.o0ZPE6EBxqVJoXxMlGGKIgHaFi?pid=ImgDet&w=369&h=276&rs=1"
+    },
+    {
+      "id": 5,
+      "title": "Chicken Burger",
+      "price": "150",
+      "description": "Topped with grilled Granny Smith apples and onions. Topped with a sauce similar to a mild honey mustard, but using real maple syrup instead of honey.",
+      "category": "Italian",
+      "image": "https://th.bing.com/th/id/OIP.53APXkKX_D0oQNlyPerZIQHaFq?pid=ImgDet&rs=1"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin"
+    }
+  ]
+}
